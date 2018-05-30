@@ -22,8 +22,6 @@ public class DetailContactActivity extends AppCompatActivity implements View.OnC
         Long id = intent.getLongExtra("contact_id",0);
         Contact contact = Contact.findById(Contact.class,id);
 
-
-
         String nomContact = contact.getNom();
         String prenomContact = contact.getPrenom();
         int tel = contact.getTelephone();
@@ -55,10 +53,17 @@ public class DetailContactActivity extends AppCompatActivity implements View.OnC
             EditText text_prenom =  findViewById(R.id.prenom);
             EditText text_nom =  findViewById(R.id.nom);
             EditText text_tel =  findViewById(R.id.telephone);
+
             String string_tel = text_tel.getText().toString();
+            String string_nom = text_nom.getText().toString();
+            String string_prenom = text_prenom.getText().toString();
 
             if(text_tel.length() > 9){
                 Toast.makeText(getApplicationContext(),"Format de numéro incompatible (+33) max:9",Toast.LENGTH_SHORT).show();
+            }
+            if(string_tel.matches("")||string_nom.matches("")||string_prenom.matches(""))
+            {
+                Toast.makeText(getApplicationContext(),"Veuillez remplir tous les champs",Toast.LENGTH_SHORT).show();
             }
             else{
                 contact.prenom = text_prenom.getText().toString();

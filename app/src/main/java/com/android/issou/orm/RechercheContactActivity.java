@@ -3,6 +3,7 @@ package com.android.issou.orm;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -49,25 +50,34 @@ public class RechercheContactActivity extends AppCompatActivity {
 
         liste.setAdapter(adapter);
 
-        liste.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(AdapterView<?> adapter, View v, int position,
-                                    long arg3)
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            Toast.makeText(getApplicationContext(),"LANDSCAPE",Toast.LENGTH_SHORT).show();
+        }
+        else
             {
-                    Contact c = contacts.get(position);
+                liste.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapter, View v, int position,
+                                            long arg3)
+                    {
+                        Contact c = contacts.get(position);
                     /*String nomContact = c.getNom();
                     String prenomContact = c.getPrenom();
                     int tel = c.getTelephone();*/
 
-                    long id = c.getId();
+                        long id = c.getId();
 
 
-                Intent intent = new Intent(RechercheContactActivity.this, DetailContactActivity.class);
-                intent.putExtra("contact_id",id);
-                startActivity(intent);
-            }
-        });
+                        Intent intent = new Intent(RechercheContactActivity.this, DetailContactActivity.class);
+                        intent.putExtra("contact_id",id);
+                        startActivity(intent);
+                    }
+                });
+
+        }
+
+
 
     }
 

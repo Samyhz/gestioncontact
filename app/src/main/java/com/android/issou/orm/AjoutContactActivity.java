@@ -21,12 +21,8 @@ public class AjoutContactActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajout_contact);
 
-
-
         Button button_ajout_contact = (Button)findViewById(R.id.ajoutContact);
         button_ajout_contact.setOnClickListener((View.OnClickListener)this);
-
-
 
     }
 
