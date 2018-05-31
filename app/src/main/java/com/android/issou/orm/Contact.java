@@ -2,14 +2,11 @@ package com.android.issou.orm;
 
 import com.orm.SugarRecord;
 
-import java.io.Serializable;
-
 public class Contact extends SugarRecord {
 
-
-     int telephone;
-     String prenom;
-     String nom;
+    int telephone;
+    String prenom;
+    String nom;
 
     public Contact() {
     }
@@ -19,7 +16,6 @@ public class Contact extends SugarRecord {
         this.prenom = prenom;
         this.nom = nom;
     }
-
 
     public String getPrenom() {
         return prenom;

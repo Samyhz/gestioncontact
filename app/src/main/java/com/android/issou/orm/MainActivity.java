@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -19,18 +18,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ajouter_contact_button.setOnClickListener((View.OnClickListener) this);
         recherche_button.setOnClickListener((View.OnClickListener) this);
-
-        }
+    }
 
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.addContact) {
-            Toast.makeText(this, "Passage sur AjoutContactActivity", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, AjoutContactActivity.class);
             startActivity(intent);
         }
         if (view.getId() == R.id.recherche_contact) {
-            Toast.makeText(this, "Passage sur RechercheContactActivity", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, RechercheContactActivity.class);
             startActivity(intent);
         }
